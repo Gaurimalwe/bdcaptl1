@@ -1,0 +1,44 @@
+<head>
+	<meta charset="UTF-8">
+	<title>Housing Society Management System</title>	      
+</head>
+  <div id="header">    <%= link_to("Back to List", {:action => 'list'}, :class => 'back-link') %>  &nbsp; &nbsp;
+<h2>Update Owner</h2>
+</div>
+  <%= form_for(:create_owner, :url => {:action => 'update', :id => @create_owner.id}) do |f| %>
+<div id="section2">
+<table2>
+<tr><label>Name </label></tr><td>  <%= f.text_field :name, :placeholder => "Your Name",:required=>true,:pattern =>"[A-z,' ']{3,}",:maxlength => 25, :size=>30,:title=>'Enter your name containing only letters' , :class=>'h5-name' %></td> <br></br>
+<label>Floor </label>  <%= f.text_field :floor,:required=>true,:pattern=>"[1-5]",:maxlength => 15, :size=>30,:title => 'Floor Limit less than 5' %><br></br>
+<label>Block </label>  <%= f.text_field :block,:required=>true,:pattern=>"[A-Z]{1}[0-9]{2}",:maxlength => 15, :size=>30,:title=>'Enter block number eg:A01' %><br></br>
+<label>Flat number </label>  <%= f.text_field :flat_number,:required=>true,:pattern=>'[-+]?[0-9]+[.,]?[0-9]+',:maxlength => 15, :size=>30,:title=>'Enter your flat number' %><br></br>
+<label>Business name </label>  <%= f.text_field :business_name, :maxlength => 15, :size=>30%><br></br>
+<label>Username </label>  <%= f.text_field :username,placeholder:"EX:your@mail.com",:required => true, :size=>30,:title=>'please enter a valid email address      
+eg:abc@xmail.com', :pattern =>'[^@]+@[^@]+\.[a-zA-Z]{2,6}' %><br></br>
+<label>Password </label>  <%= f.password_field :password, :required => true, :size => 30 %><br></br>
+<label> Password Confirmation </label><%=f.password_field :password_confirmation, :required => true, :size => 30 %><br></br>
+<br></br>
+<label>Photo</label>
+<p>
+    <%= f.file_field :image %>
+</p> <br></br>  
+<label> Area  as  per  building plan:</label> <br></br>
+<label>Carpet area </label>  <%= f.text_field :carpet_area,:required=>true,:pattern=>'[-+]?[0-9]*[.,]?[0-9]+',:maxlength => 5, :size=>30,:title=>'Enter only numbers' %><br></br>
+<label>Build up area </label>  <%= f.text_field :builtup_area,:required=>true,:pattern=>'[-+]?[0-9]*[.,]?[0-9]+',:maxlength => 5, :size=>30,:title=>'Enter only numbers' %><br></br><br></br>
+<label>Mezzanine</label>&nbsp;&nbsp; <%= f.radio_button :mezzanine, "Yes", :required=>true %>  Yes&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :mezzanine, "No", :required=>true %>  No<br></br>
+<label>Water connection</label>&nbsp;&nbsp; <%= f.radio_button :water_connection, "Common", :required=>true  %>  Common&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :water_connection, "Individual", :required=>true  %>  Individual </br></br>
+<label>Electricity</label>&nbsp;&nbsp; <%= f.radio_button :electricity, "Common", :required=>true  %>  Common&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :electricity, "Individual", :required=>true  %>  Individual <br></br>
+<label>Ownership</label>&nbsp;&nbsp; <%= f.radio_button :ownership, "Owns", :required=>true %>  Owns&nbsp;&nbsp;&nbsp;&nbsp;<%= f.radio_button :ownership, "Rented", :required=>true  %>  Rented <br></br><br></br>
+<label><label1>*if Rented</label1></label><br></br>
+<label><label1>*</label1>Month from </label><%= f.text_field :month_from, 'data-behaviour' => 'datepicker', :size=>30,:placeholder => "Click for calender" %><br></br>
+<label><label1>*</label1>Month to </label><%= f.text_field :month_to, 'data-behaviour' => 'datepicker', :size=>30, :placeholder => "Click for calender" %><br></br>
+<label><label1>*</label1>Per month rent </label>  <%= f.text_field :per_month_rent,:pattern=>'[-+]?[0-9]*[.,]?[0-9]+' ,:maxlength => 5, :size=>30,:title=>'Enter numbers only'%><br></br>
+<%= f.submit 'Update Owner', :class =>'form-buttons' %>   
+<script>
+ $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+    $(this).datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+});
+  </script>
+ <% end %>
+</div>
+

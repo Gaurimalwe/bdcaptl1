@@ -1,0 +1,28 @@
+<h1>Listing ideas</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <!-- <th>Description</th>
+    <th>Picture</th>
+    <th></th>
+    <th></th>
+    <th></th> -->
+  </tr>
+
+<% @file_uploads.each do |idea| %>
+  <tr>
+    <td><%= idea.name %></td>
+  
+ <td><a href="<%= idea.picture.url %> "> <b> View Files </b></a></td>
+    <!--<td><%= link_to 'Show', idea %></td>-->
+    <td><%= link_to 'Edit', edit_file_upload_path(idea) %></td>
+<!--    <td><%= link_to 'Destroy', idea, confirm: 'Are you sure?', method: :delete %></td>-->
+        <td><%= button_to "Delete",  idea, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete?" %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New file', new_file_upload_path %>

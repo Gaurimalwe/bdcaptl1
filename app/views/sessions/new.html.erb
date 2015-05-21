@@ -1,0 +1,22 @@
+  <%= stylesheet_link_tag "application.css" %>
+<br></br>
+
+<div id="section2">
+ <h1 align="center" >User Log In</h1><br></br>
+    
+   <%= form_for(:sessions, :url => {:action => 'create'}) do %>
+    <label>Username</label>
+    <%=text_field_tag :username, params[:username], :required=>true %><br></br>
+    <label>Password </label>
+    <%=password_field_tag :password %><br></br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Remember Me&nbsp;&nbsp;&nbsp;&nbsp;<%= check_box_tag :remember_me, 1, params[:remember_me] %><br></br>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= submit_tag 'Log In', :class =>'form-buttons' %>
+<% end %>
+    
+</div>
+
+

@@ -1,0 +1,42 @@
+<%= link_to("Back to Menu", :controller => 'owners/show',:class=>'form-buttons') %>
+<div class="wrapper">
+<div id="header"> <h2>Flat Holders</h2><l1>
+<br></br><%= link_to("New Flat Holder", {:action => 'new'}, :class => 'action new') %></l1>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<l1><%= link_to "Log out", logout_path %>
+</l1></div1></div>
+  <div class="flat holder list">
+<br></br>
+<%= stylesheet_link_tag "application.css" %>
+<br></br>
+  <table class="listing" summary="Flat Holder list">
+<caption><b>Flat Holder list</b></caption>
+<br></br>
+    <tr class="header">
+      
+      <th><b>Name</b></th>
+      <th><b>Username</b></th>
+      <th><b>Actions</b></th>
+    </tr>
+    <% @create_owners.each do |f| %>
+    <tr>
+      <td><%= f.name %></td>
+      <td><%= f.username %></td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => f.id}, :class => 'action show') %>
+        <%= link_to("Edit", {:action => 'edit', :id => f.id}, :class => 'action edit') %>
+       
+        <%= link_to("Delete", {:action => 'delete', :id => f.id}, data: { confirm: 'Are you sure?' }) %>
+      </td>
+    </tr>
+
+     <% end %>
+  </table>
+</div>
+
+</div>
+</div>
+<footer>
+
+</footer>
+

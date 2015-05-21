@@ -1,0 +1,19 @@
+
+
+
+<table>
+<tr><label>Enter Mobile Number: </label><input type="text" value = <%= @message.mob_nos %>></br>
+ <br></br>
+<tr>
+<label>Sms body </label>
+<br></br>
+<textarea disabled cols='60' rows='8' style="color: black;">Title: <%= @message.title %>
+Date: <%= @message.start_date  %>
+Time: <%= @message.start_time  %>
+
+</textarea>
+</tr>
+<tr>
+<td><%= link_to("Send", {:action => 'sms_gateway', :id => @message.id}, :class => 'action show') %></td>
+<td align="left"><%= link_to("Back to List", {:action => 'list'}, :class => 'back-link') %></td>
+</tr>

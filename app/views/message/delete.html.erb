@@ -1,0 +1,17 @@
+
+<%= link_to("<< Back to List", {:action => 'list'}, :class => 'back-link') %>
+
+
+  <h2>Delete Flat Holder</h2>
+  
+  <%= form_for(:message, :url => {:action => 'destroy', :id => @message.id}) do |f| -%>
+
+    <h1>Are you sure you want to permanently delete this subject?</h1>
+  
+    <p class="reference-name"><%= @message.project %></p>
+  
+    <%= f.submit 'Delete ', :class =>'form-buttons' %>
+   
+    
+  <% end %>
+

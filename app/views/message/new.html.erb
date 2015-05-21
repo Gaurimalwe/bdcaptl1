@@ -1,0 +1,177 @@
+<style>
+@font-face {
+    font-family: 'BLOKKNeue-Regular';
+    src: url('../fonts/BLOKKNeue-Regular.eot');
+    src: url('../fonts/BLOKKNeue-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BLOKKNeue-Regular.woff') format('woff'),
+         url('../fonts/BLOKKNeue-Regular.svg#BLOKKNeue-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+font-color:white;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    color:black;
+
+}
+#section5 {
+background-color:#B0C4DE;
+
+    text-color:black;
+    padding:50px;
+margin-left:200px; margin-top:50px; margin-right:200px; margin-bottom:60px; 
+ 
+    border-width: 5px;
+ border-radius:10px;
+
+
+}
+body{
+  background-color:#191970;
+}
+a:visited {color:white; padding: 5px 20px 5px 20px;}
+a:active { color:white;text-decoration: none;}
+
+a{
+ background-color: #191970;
+  text-color:white;
+  display: inline-block;
+  font-family: sans-serif;
+  padding: 5px 20px 5px 20px;
+    font-size: 20px;
+  border-radius:5px;
+}
+h5{
+color:white;
+ font-size: 10em;
+float:center;
+font-family: 'calibri';
+font-size:1.8em;
+display: block; 
+}
+textarea {
+    resize: none;
+    }
+</style>
+
+
+
+<h5><b><center> Building Society Management System   </center> </b></h5>
+<div id="section5">
+<div id="gateway" class="modal fade" data-backdrop="static">
+
+<%= form_for(@message, :url => {:action => 'create'}, :validate =>true) do |f| %>
+   <% if @message.errors.any? %>
+      <div class="error_messages">
+        <h2>Form is invalid</h2>
+        <ul>
+           <% for message in @message.errors.full_messages %>
+              <li><%= message %></li>
+           <% end %>
+        </ul>
+      </div>
+   <% end %>
+
+<script type="text/javascript">
+    $('.datetimepicker').datetimepicker();
+</script>
+
+<%# <tr><label>Project </label></tr><td>  <%= f.text_field :project %></td>
+ <br></br>
+<label>Title </label>  <%= f.text_field :title %>
+<br></br>
+<%# <label>Place </label>  <%= f.text_field :place %> 
+
+<label > Start date</label> <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', :size=>30,:placeholder => "Click for calender" %>
+<br></br>
+<%# <label >End date </label> <%= f.text_field :end_date, 'data-behaviour' => 'datepicker', :size=>30,:placeholder => "Click for calender" %> 
+
+</div>
+<label> Start time</label>  <%= f.time_select :start_time,
+  :combined => true,
+  :default => Time.now.change(:hour => 11, :min => 30),
+  :minute_interval => 15,
+  :time_separator => "",
+  :start_hour => 10,
+  :start_minute => 30,
+  :end_hour => 14,
+  :end_minute => 30
+%>
+
+<br></br>
+<label>End time </label>   <%= f.time_select :end_time,
+  :combined => true,
+  :default => Time.now.change(:hour => 11, :min => 30),
+  :minute_interval => 15,
+  :time_separator => "",
+  :start_hour => 10,
+  :start_minute => 30,
+  :end_hour => 14,
+  :end_minute => 30
+%>
+<br></br>
+<label>Minute taker </label>  <%= f.text_field :minute_taker %>
+<br></br>
+<label>Attendee </label>  <%= f.text_field :attendee %>
+<br></br>  
+<label>Mob Numbers </label>  <%= f.text_field :mob_nos %>
+<br></br> 
+<label>About meeting </label>  <%= f.text_area(:about_meeting, size: '45x10') %>
+<br></br>
+
+<table id="maintable" width="20%" cellpadding="0" cellspacing="0" class="pdzn_tbl1" border="1px">
+
+
+     <%# <label>Topic</label><%= f.text_field :topic %>
+     <label>Agenda</label><%= f.select :type_o, ['Decision', 'Done', 'Info', 'Idea', 'Todo '], :selected => 'Todo' %><br></br>
+    <%#  <label>Note</label><%= f.text_field :note %>
+     <label>Owner</label><%= f.text_field :owner %><br></br>
+
+</div>
+<br></br>  
+ 
+	
+
+      <%= f.submit 'Create' %> &nbsp;
+<br></br>  
+<br></br> 
+
+<br></br>  
+<br></br> 
+<%= link_to 'Back',{:action=>'list'}%>
+
+
+ <script>
+ $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
+    $(this).datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+});
+</script>
+ 
+
+
+  <% end %>
+</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

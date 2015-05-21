@@ -1,0 +1,21 @@
+<div class="menu">
+
+  <h2>Building Society Management System</h2>
+  <h1>Manage Access Rights</h1>
+  <h1>For Users</h1><br><br/><br><br/>
+   User
+  <div class="select-style">
+     <%= select_tag "name", options_from_collection_for_select(CreateOwner.order(:name), :id, :name, 1), {class: "select-style"} %>
+  </div>
+  Can
+  <div class="select-style">
+     <%= select_tag "can", options_for_select(%w[Can Cannot]), {class: "select-style"} %>
+  </div>
+  Perform
+  <div class="select-style">
+     <%= select_tag "perform", options_for_select(%w[Read Write]), {class: "select-style"} %>
+  </div><br></br>
+  <div class="form-buttons">
+     <%= submit_tag "Manage" %>
+  </div>
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User</title>
+
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application", "rails.validations" %>
+  <%= csrf_meta_tags %>
+  
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+</head>
+<body class="<%= params[:controller] %>">
+  <div id="container">
+    <div id="user_nav">
+      <% if current_owner %>
+        <h0>Logged in as <%= link_to( current_owner.username, {:controller => 'create_owner', :action => 'edit', :id => current_owner.id}, :class => 'action edit') %></h0>
+      <% elsif current_admin%>
+        <h0>Logged in as <%= current_admin.email %></h0>
+      <% end %>
+    </div>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+    <%= yield %>
+  </div>
+</body>
+</html>
+
+

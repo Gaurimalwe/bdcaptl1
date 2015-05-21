@@ -1,0 +1,144 @@
+<style>
+table, td, th {
+    
+    border: 1px white;
+    padding-top: 45px;
+    padding-right:30px;
+    padding-bottom: 25px;
+    padding-left: 45px;
+    align:center;
+    border-radius:10px;
+   border-color:black;
+ border-spacing: 10px;
+
+}
+cellspacing="0"
+
+th,td{
+    background-color:white;
+   padding: 5px; }
+ valign
+th, td { vertical-align: top; }
+
+align (center)
+table { margin: 0 auto; }
+
+th, td { padding: 5px; }
+
+table.listing {
+    display: table;
+    width: 100%;
+}
+table.listing thead, table.listing tbody {
+    float: left;
+    width: 100%;
+}
+table.listing tbody {
+    overflow: auto;
+    height: 200px;
+}
+table.listing tr {
+    width: 100%;
+    display: table;
+    text-align: left;
+}
+table.listing th,table.listing td {
+    width: 33%;
+}
+
+@font-face {
+    font-family: 'BLOKKNeue-Regular';
+    src: url('../fonts/BLOKKNeue-Regular.eot');
+    src: url('../fonts/BLOKKNeue-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/BLOKKNeue-Regular.woff') format('woff'),
+         url('../fonts/BLOKKNeue-Regular.svg#BLOKKNeue-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+font-color:white;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    color:black;
+
+}
+#section5 {
+background-color:#B0C4DE;
+
+    text-color:black;
+    padding:50px;
+margin-left:200px; margin-top:50px; margin-right:200px; margin-bottom:60px; 
+ 
+    border-width: 5px;
+ border-radius:10px;
+
+
+}
+body{
+  background-color:#191970;
+}
+a {font-family:Georgia, "Times New Roman", Times, serif;font-size:large; cursor: auto  size:100%; word-spacing: 3px;}
+a:link {color: white; background-color:#191970  ;background-size:auto	;text-decoration:none ;}
+a:visited {color:white; background-color:#191970 ;}
+
+a:active { background-color:  #9999FF; color: #ff0000;text-decoration: none;box-size:150px;}
+a:link { border-radius:5px; padding: 3px 3px 3px 3px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid }
+
+
+
+a{
+ background-color: #191970;
+  text-color:white;
+  display: inline-block;
+  font-family: sans-serif;
+  padding: 5px 20px 5px 20px;
+    font-size: 20px;
+  border-radius:5px;
+}
+h5{
+color:white;
+ font-size: 10em;
+float:center;
+font-family: 'calibri';
+font-size:1.8em;
+display: block; 
+}
+
+</style>
+<h5><b> <center> Meeting list </center></b></h5>
+<div id="section5">
+<br></br><%= link_to("New", {:action => 'new'}, :class => 'action new') %></l1>
+ <div class="flat holder list">
+
+  <table>
+
+
+    <tr >
+       <th><b>Project&nbsp;</b></th>
+    </tr>
+    <% @messages.each do |f| %>
+    <tr>
+      <td><%= f.title %>&nbsp;</td>
+      <td class="actions">
+        <%= link_to("Show", {:action => 'show', :id => f.id}, :class => 'action show') %>
+        <%= link_to("Sms", {:action => 'sms', :id => f.id}, :class => 'action show') %>
+        <%= link_to("Delete", {:action => 'delete', :id => f.id}, data: { confirm: 'Are you sure?' }) %>
+      </td>
+    </tr>
+
+     <% end %>
+  </table>
+</div>
+
+</div>
+</div>
+<footer>
+
+</footer>
+</div>
